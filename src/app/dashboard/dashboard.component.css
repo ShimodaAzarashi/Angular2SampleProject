@@ -1,0 +1,27 @@
+.dashboard-contents {
+	margin-left: 20px;
+}
+#dashboard-container {
+  display: -webkit-flex;/*--- safari�iPC�j�p ---*/
+  display: flex;
+  -webkit-flex-flow:row wrap;/*--- safari�iPC�j�p ---*/
+  flex-flow:row wrap;
+  width: 100%;
+  margin-right: 10px;
+}
+
+.dashboard-index-card {
+  margin: 16px 16px 16px 8px;
+  width: 300px;
+}
+
+.md-card-actions {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-delete-button {
+  margin-left: 10px;
+  vertical-align: bottom;
+  background-color: #E5E5EA;
+}

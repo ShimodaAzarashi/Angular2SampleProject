@@ -1,0 +1,99 @@
+<div style="display: flex;margin-top: 20px;">
+  <h3>Dictionary</h3>
+  <div style="margin-left: 100px;margin-top: 20px;">
+      <md-select [(ngModel)]="selectLang" placeholder="言語" >
+        <md-option *ngFor="let lang of langs" [value]="lang.value">
+          {{lang.label}}
+        </md-option>
+      </md-select>
+  </div>
+</div>
+<div class="dictionary-contents">
+<md-tab-group [selectedIndex]="0">
+  <md-tab label="辞書検索">
+	<md-input-container md-subheader class="dictionary-search"  type="search">
+		<div style="display: flex;">
+	    	<input mdInput placeholder="検索" #searchSynonym (keyup.enter)="search(searchSynonym.value)"><i class="material-icons">search</i>
+	    </div>
+	</md-input-container>
+	<table class="synonym-list" border="1">
+		<tr>
+			<td class="col-category" style="border-top: 1px solid #fff;">システム辞書</td>
+			<td class="col-word" style="border-top: 1px solid #fff;">{{dictionarys}}　</td>
+		</tr>
+		<tr>
+			<td class="col-category">wikipedia</td>
+			<td class="col-word">{{wikis}}　</td>
+		</tr>
+		<tr>
+			<td class="col-category">ユーザ(自動学習)</td>
+			<td class="col-word">{{mlwords}}　</td>
+		</tr>
+		<tr>
+			<td class="col-category">ユーザ(手入力)</td>
+			<td class="col-word">{{manualwords}}　</td>
+		</tr>
+	</table>
+  </md-tab>
+
+  <md-tab label="辞書管理">
+	<table class="no-border" width="700">
+		<tr>
+		<td class="no-line" width="500">
+		<md-input-container md-subheader class="dictionary-search"  type="search">
+			<div style="display: flex;">
+			 	<input mdInput placeholder="検索" #searchManualSynonym (keyup.enter)="searchManual(searchManualSynonym.value)"><i class="material-icons">search</i>
+		    </div>
+	    </md-input-container>
+	    </td>
+	    <td class="no-line" style="padding-left: 40px; text-align: right" width="150">
+	    	<button md-mini-fab color="primary" class="add-group-button" (click)="addSynonymGroup()">
+   				<md-icon class="md-icon-addgroup">playlist_add</md-icon>
+   			</button>
+	    </td>
+	    </tr>
+	</table>
+
+	<table class="synonym-list" border="1">
+		<th class="col-id-header">グループID</th>
+		<th class="col-synonym-header">単語</th>
+		<th class="col-operation-header">単語編集</th>
+		<th class="col-addnew-header">グループ編集</th>
+
+	    <template ngFor let-synonymG [ngForOf]="synonymGroup">
+		  <tr *ngFor="let synonym of synonymG.synonym">
+			<td class="col-id" *ngIf="synonym.isFirstRow" [attr.rowspan]="synonymG.dataSize">{{synonymG.id}}</td>
+			<td class="col-synonym">
+				<md-input-container  *ngIf="synonym.isEditing" class="full-width">
+          			<input mdInput required [(ngModel)]="synonym.word">
+        		</md-input-container>
+        		<span *ngIf="!synonym.isEditing">{{synonym.word}}</span>
+			</td>
+			<td class="col-operation">
+   				<button md-button  *ngIf="synonym.isEditing" class="flat-button" (click)="saveSynonym(synonym)">
+   					<md-icon color="primary" class="md-icon-save">save</md-icon>
+   				</button>
+   				<button md-button  *ngIf="synonym.isEditing" class="flat-button" (click)="cancelSynonym(synonym)">
+   					<md-icon class="md-icon-clear">clear</md-icon>
+   				</button>
+				<button md-button  *ngIf="!synonym.isEditing" class="flat-button" (click)="editSynonym(synonym)">
+   					<md-icon class="md-icon-edit">edit</md-icon>
+   				</button>
+   				<button md-button  *ngIf="!synonym.isEditing" class="flat-button" (click)="deleteSynonym(synonym)">
+   					<md-icon class="md-icon-delete">delete</md-icon>
+   				</button>
+   			</td>
+			<td class="col-addnew" *ngIf="synonym.isFirstRow" [attr.rowspan]="synonymG.dataSize">
+				<button md-button class="flat-button" (click)="addSynonym(synonym)">
+   					<md-icon color="primary" class="md-icon-add">add_circle</md-icon>
+   				</button>
+   				<button md-button *ngIf="synonym.isFirstRow" class="flat-button" (click)="deleteSynonymGroup(synonym)">
+   					<md-icon class="md-icon-delete">delete</md-icon>
+   				</button>
+			</td>
+		</tr>
+			</template>
+	</table>
+  </md-tab>
+</md-tab-group>
+</div>

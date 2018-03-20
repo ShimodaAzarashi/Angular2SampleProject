@@ -1,0 +1,13 @@
+.chat-card {
+  width: 300px;
+  margin: 20px 10px;
+}
+
+span.complement {
+  color: gray;
+  font-size: smaller;
+}
+
+.pre-wrap {
+	white-space: pre-wrap;
+}

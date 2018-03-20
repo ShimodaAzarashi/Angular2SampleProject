@@ -1,0 +1,25 @@
+.app-spinner {
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+}
+
+.full-width {
+  width: 100%;
+}
+
+div#search-pain {
+  /*
+  border: 1px solid pink;
+   */
+  width: 600px;
+}
+
+span.complement {
+  color: gray;
+  font-size: smaller;
+}
+
+.pre-wrap {
+	white-space: pre-wrap;
+}

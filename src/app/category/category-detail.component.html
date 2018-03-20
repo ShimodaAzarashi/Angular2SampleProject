@@ -1,0 +1,19 @@
+<md-card class="category-detail">
+  <md-card-header>
+    <h3>カテゴリ</h3>
+  </md-card-header>
+  <md-card-content>
+  <p>
+    <md-input-container class="full-width">
+      <input mdInput type="text" placeholder="カテゴリ名" [(ngModel)]="category" required>
+    </md-input-container>
+  </p>
+    <p class="field-error-message" *ngIf="errorMessage">
+      {{errorMessage}}
+    </p>
+  </md-card-content>
+  <md-card-actions class="hCenter">
+    <button type="button" md-raised-button (click)="cancel()">キャンセル</button>
+    <button type="button" md-raised-button (click)="addCategory()">登録</button>
+  </md-card-actions>
+</md-card>

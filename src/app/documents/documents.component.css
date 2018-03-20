@@ -1,0 +1,17 @@
+
+
+div#list-pain {
+  /*
+  border: 1px solid red;
+   */
+  margin-right: 10px;
+}
+div#edit-pain {
+  /*
+  border: 1px solid blue;
+   */
+  margin-left: 10px;
+}
+
+div#docs-container {
+}

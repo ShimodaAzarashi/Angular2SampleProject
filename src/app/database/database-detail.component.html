@@ -1,0 +1,27 @@
+<md-card class="database-detail">
+  <md-card-header>
+    <h3>データベース</h3>
+  </md-card-header>
+  <md-card-content>
+  <p>
+    <md-input-container class="full-width">
+      <input mdInput type="text" placeholder="データベース名" [(ngModel)]="database.name" required>
+    </md-input-container>
+  </p>
+  <p>
+    <md-select placeholder="言語" [(ngModel)]="database.lang" >
+        <md-option *ngFor="let lang of langs" [value]="lang.value">{{lang.label}}</md-option>
+    </md-select>
+  </p>
+
+    <p class="field-error-message" *ngIf="errorMessage">
+      {{errorMessage}}
+    </p>
+  </md-card-content>
+  <md-card-actions class="hCenter">
+    <button type="button" md-raised-button (click)="cancel()">キャンセル</button>
+    <button type="button" md-raised-button (click)="addDatabase()">登録</button>
+  </md-card-actions>
+
+
+</md-card>

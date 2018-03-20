@@ -1,0 +1,17 @@
+
+<md-card class="edit-card">
+  <md-card-content>
+    <h3>QA Editor<span *ngIf="updateCategory"> on {{updateCategory}}</span></h3>
+    <md-input-container class="full-width">
+      <textarea mdInput placeholder="Question" [(ngModel)]="document.question"></textarea>
+    </md-input-container>
+    <md-input-container class="full-width">
+      <textarea mdInput placeholder="Answer" [(ngModel)]="document.answer"></textarea>
+    </md-input-container>
+  </md-card-content>
+  <md-card-actions class="hCenter">
+    <button md-raised-button (click)="clear()">CLEAR</button>
+    <button md-raised-button [disabled]="!updateCategory || updateCategory=='all'" color="primary" (click)="save()">SAVE</button>
+  </md-card-actions>
+</md-card>
+

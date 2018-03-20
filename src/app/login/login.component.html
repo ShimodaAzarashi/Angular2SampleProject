@@ -1,0 +1,42 @@
+
+<md-card class="login-card">
+  <md-card-header>
+    <h3>RMR2 portal login (v1.4.0-it)</h3>
+  </md-card-header>
+  <md-card-content>
+    <p>
+      ログインするには、事前にユーザ登録している必要があります
+    </p>
+
+    <!--
+        <p>
+          <button (click)="login(email,password)"  *ngIf="!authService.isLoggedIn">Login</button>
+          <button (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>
+        </p>
+    -->
+
+    <p>
+      <md-input-container class="full-width" type="email">
+        <input mdInput placeholder="email address" class="form-control" [(ngModel)]="email" required>
+        <div ng-messages="email.$error" class="md-input-messages-animation md-auto-hide ng-active" aria-live="assertive">
+        </div>
+      </md-input-container>
+    </p>
+    <p>
+      <md-input-container class="full-width" type="password">
+        <input mdInput type="password" placeholder="password" class="form-control" [(ngModel)]="password" md-maxlength="50" required>
+        <div ng-messages="password.$error" class="md-input-messages-animation md-auto-hide ng-active" aria-live="assertive">
+        </div>
+      </md-input-container>
+    </p>
+
+  </md-card-content>
+  <md-card-actions class="hCenter">
+    <button md-raised-button color="primary" (click)="login(email,password)">Login</button>
+    <span style="font-size: smaller">     {{message}}</span>
+  </md-card-actions>
+</md-card>
+
+<p><a href="">アカウントを作る</a></p>
+
+

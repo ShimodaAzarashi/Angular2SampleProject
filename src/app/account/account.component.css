@@ -1,0 +1,41 @@
+.app-spinner {
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+}
+
+div#create-pain {
+  margin-bottom: 15px;
+}
+
+.col-userid-header {
+	width: 150px;
+	color: #777;
+}
+.col-loginid-header {
+	width: 200px;
+	color: #777;
+}
+.col-company-header {
+	width: 200px;
+	color: #777;
+}
+.col-icon-header {
+	width: 100px;
+	color: #777;
+	font-size: 12px;
+}
+
+.col-userid {
+	width: 150px;
+	font-size: 12px;
+}
+.col-loginid {
+	width: 200px;
+	font-size: 12px;
+}
+.col-company {
+	width: 200px;
+	font-size: 12px;
+}
+

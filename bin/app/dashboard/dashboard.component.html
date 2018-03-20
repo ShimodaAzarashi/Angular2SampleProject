@@ -1,0 +1,27 @@
+<div class="dashboard-contents">
+<h3>Dashboard</h3>
+<div id="dashboard-container" class='md-padding' layout-align="center center" layout>
+    <md-card class="dashboard-index-card" *ngFor="let userDb of userDbs" flex="30">
+      <md-card-header>
+        <md-card-title style="word-break: break-all;">{{userDb}}</md-card-title>
+        <md-card-subtitle>started on 2016-12-10</md-card-subtitle>
+        <md-icon md-card-avatar>folder</md-icon>
+      </md-card-header>
+      <md-card-content>
+        <p>このユーザデータベースの説明を、ユーザ自身が記入します</p>
+        <p>例えば、開発環境用、結合テスト、本番（コールセンター用）、などです</p>
+      </md-card-content>
+      <md-card-actions>
+        <button md-raised-button>属性を編集する</button>
+        <button md-raised-button color="primary" (click)="onSelectDB(userDb)">内容を見る</button>
+        <button md-mini-fab class="dashboard-delete-button" (click)="deleteDataBase(userDb)">
+   			<md-icon class="md-24">delete</md-icon></button>
+      </md-card-actions>
+      <md-card-footer>
+        <md-progress-bar mode="determinate" value="100"></md-progress-bar>
+      </md-card-footer>
+    </md-card>
+</div>
+<span>データベースを追加する　</span><button md-mini-fab color="primary" (click)="addDatabase()"><md-icon>add</md-icon></button>
+<!--  <span>子アカウントを追加する　</span><button md-mini-fab color="accent" (click)="addChildAccount()"><md-icon>add</md-icon></button>-->
+</div>

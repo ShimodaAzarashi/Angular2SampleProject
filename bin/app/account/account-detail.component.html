@@ -1,0 +1,48 @@
+<md-card class="account-detail">
+  	<md-card-header>
+    	<h3 *ngIf="!isRepasswordMode">アカウント登録</h3>
+    	<h3 *ngIf="isRepasswordMode">パスワード再発行</h3>
+  	</md-card-header>
+    <md-card-content *ngIf="!isRepasswordMode">
+        <md-input-container class="full-width">
+          <input mdInput placeholder="ユーザID" [(ngModel)]="account.prefix" required>
+        </md-input-container>
+        <md-input-container class="full-width">
+          <input mdInput placeholder="ログインID" [(ngModel)]="account.login_id" required>
+        </md-input-container>
+        <md-input-container class="full-width">
+          <input mdInput placeholder="パスワード" [(ngModel)]="account.password" required>
+        </md-input-container>
+        <md-input-container class="full-width">
+          <input mdInput placeholder="識別名" [(ngModel)]="account.name">
+        </md-input-container>
+        <p *ngIf="created.authentication_id">認証情報</p>
+        <p><span style="color: #777;">AuthenticationId: </span>{{created.authentication_id}}</p>
+        <p><span style="color: #777;">SecretKey: </span>{{created.secret_key}}</p>
+	    <p class="field-error-message" *ngIf="errorMessage">
+	      {{errorMessage}}
+	    </p>
+	    <p class="field-message" *ngIf="message">
+	      {{message}}
+	    </p>
+    </md-card-content>
+    <md-card-content *ngIf="isRepasswordMode" style="width: 400px;">
+        <md-input-container class="full-width">
+          <input mdInput placeholder="新パスワード" [(ngModel)]="account.password" required>
+        </md-input-container>
+	    <p class="field-error-message" *ngIf="errorMessage">
+	      {{errorMessage}}
+	    </p>
+    </md-card-content>
+
+	<md-card-actions class="hCenter">
+		<span *ngIf="!isRepasswordMode">
+	    	<button type="button" md-raised-button (click)="close()">閉じる</button>
+	    	<button type="button" md-raised-button (click)="addAccount()">登録</button>
+    	</span>
+		<span *ngIf="isRepasswordMode">
+	    	<button type="button" md-raised-button (click)="cancel()">キャンセル</button>
+	    	<button type="button" md-raised-button (click)="changePassword()">登録</button>
+    	</span>
+	</md-card-actions>
+</md-card>

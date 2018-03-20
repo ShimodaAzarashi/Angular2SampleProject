@@ -1,0 +1,40 @@
+<div class="flex-container" fxLayout="column" fxLayoutAlign="center center">
+  <div class="flex-container" fxLayout="column">
+	  <h3>アカウント一覧
+		  <button md-mini-fab color="primary" *ngIf="isAddable"  style="margin-left: 20px;" class="add-group-button" (click)="addAccount()">
+			<md-icon class="md-icon-addgroup">add</md-icon>
+		  </button>
+	  </h3>
+  </div>
+  <div [hidden]="!isSearchNow"><md-spinner class="app-spinner"></md-spinner></div>
+	<md-list class="search-list">
+		<md-list-item class="search-list-item">
+      		<p class="col-userid-header">ユーザID</p>
+          	<p class="col-userid-header">アカウント種別</p>
+      		<p class="col-loginid-header">ログインID</p>
+      		<p class="col-company-header">識別名</p>
+      		<p class="col-icon-header">パスワード再発行</p>
+      		<p class="col-icon-header">認証情報再発行</p>
+      		<p class="col-icon-header">削除</p>
+		</md-list-item>
+		<md-divider></md-divider>
+		<div *ngFor="let company of companies">
+			<md-list-item fxFlex="" class="search-list-item">
+		        <p class="col-userid">{{company.prefix}}</p>
+		        <p class="col-userid">{{company.ownership}}</p>
+		        <p class="col-loginid">{{company.login_id}}</p>
+		        <p class="col-company">{{company.name}}</p>
+		        <button md-button *ngIf="company.isRepassword" class="flat-button" (click)="rePassword(company)">
+		        	<md-icon class="md-icon-password">vpn_key</md-icon>
+		        </button>
+	      		<button md-button *ngIf="company.isReCredential" class="flat-button" (click)="reissueCredential(company)">
+   					<md-icon class="md-icon-credential">verified_user</md-icon>
+   				</button>
+		        <button md-button *ngIf="company.isDeletable" class="flat-button" (click)="deleteAccount(company.prefix)">
+		        	<md-icon class="md-icon-delete">delete</md-icon>
+		        </button>
+			</md-list-item>
+			<md-divider></md-divider>
+		</div>
+	</md-list>
+</div>

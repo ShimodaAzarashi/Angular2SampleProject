@@ -1,0 +1,61 @@
+<div class="data-contents">
+  <div style="margin-top: 20px;">
+      <span class="database-select">
+      Select Database
+      <md-select [(ngModel)]="selectUserDb" placeholder="database" >
+        <md-option *ngFor="let userDb of userDbs" [value]="userDb" (onSelect)="onSelectDatabase(userDb)">
+          {{userDb}}
+        </md-option>
+      </md-select>
+      </span>
+  </div> 
+
+  <h3 style="margin-top: 50px;">Import</h3>
+  <div id="dataupload-container" class='md-padding' layout-align="center center" layout>
+  <md-card class="dataupload-card">
+    <p style="font-weight: bold;">フォーマット</p>
+	<md-radio-group [(ngModel)]="uploadFileType">
+	    <md-radio-button value="CSV">カンマ区切り</md-radio-button>
+	    <md-radio-button value="TSV">タブ区切り</md-radio-button>
+	</md-radio-group>
+    <div>
+      <input #upFile type="file" (change)="onFileChange($event)" placeholder="Upload file" accept=".tsv,.csv,.txt">
+      <button md-raised-button  (click)="onPushUploadButton()">Upload</button>
+      <div class="message-area" *ngIf="messageUplode || errorMessage">
+      	<h3>取込結果</h3>
+      	<div>{{messageUplode}}</div>
+      	<div class="upload-error-list">{{errorMessage}}</div>
+      </div>
+    </div>
+  </md-card>
+  </div>
+
+  <h3 style="margin-top: 50px;">Export</h3>
+  <div id="dataupload-container" class='md-padding' style="margin-bottom: 20px;" layout-align="center center" layout>
+  <md-card class="datadownload-card">
+    <div style="margin-top: 20px;">
+      <span class="category-select">
+      <md-select [disabled]="!(downloadCategories && downloadCategories.length > 0)" [(ngModel)]="selectDownloadCategory" placeholder="category">
+        <md-option value="all">all</md-option>
+        <md-option *ngFor="let category of downloadCategories" [value]="category">
+          {{category}}
+        </md-option>
+      </md-select>
+      </span>      
+    <!-- 
+      <p style="font-weight: bold;">フォーマット</p>
+	  <md-radio-group [(ngModel)]="fileType">
+	    <md-radio-button value="CSV">カンマ区切り</md-radio-button>
+	    <md-radio-button value="TSV">タブ区切り</md-radio-button>
+	  </md-radio-group>
+	  	-->
+	  
+      <button md-raised-button  (click)="onPushDownloadButton()" style="margin-left: 30px; margin-top: 10px;">Download</button>
+
+      <div class="message-area" *ngIf="messageDownload">
+      	<div>{{messageDownload}}</div>
+      </div>
+    </div>
+  </md-card>
+  </div>
+</div>

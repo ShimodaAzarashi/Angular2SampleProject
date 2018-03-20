@@ -1,0 +1,21 @@
+<md-card class="dictionary-detail">
+  <md-card-header>
+    <h3 *ngIf="isSynonym" >単語グループ登録</h3>
+    <h3 *ngIf="!isSynonym" >単語登録</h3>
+  </md-card-header>
+  <md-card-content>
+  <p>
+    <md-input-container class="full-width">
+      <input mdInput type="text" placeholder="単語" [(ngModel)]="word">
+    </md-input-container>
+  </p>
+    <p class="field-error-message" *ngIf="errorMessage">
+      {{errorMessage}}
+    </p>
+  </md-card-content>
+  <md-card-actions class="hCenter">
+    <button type="button" md-raised-button (click)="cancel()">キャンセル</button>
+    <button *ngIf="isSynonym" type="button" md-raised-button (click)="addSynonym()">登録</button>
+    <button *ngIf="!isSynonym" type="button" md-raised-button (click)="addDictionary()">登録</button>
+  </md-card-actions>
+</md-card>

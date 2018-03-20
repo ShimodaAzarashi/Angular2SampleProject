@@ -1,0 +1,53 @@
+<h4 style="color: #777;margin: 0;">Database: {{db}}</h4>
+<div class="flex-container" fxLayout="column" fxLayoutAlign="center center">
+  <div id="search-pain" class="flex-item" fxFlex="">
+    <md-grid-list cols="2" rowHeight="70px">
+      <md-grid-tile>
+        <h4>QA Search <span>on      </span>
+          <md-select placeholder="category">
+            <md-option [value]="all"  (onSelect)="onSelectCategory('all')">all</md-option>
+            <md-option *ngFor="let category of categories" [value]="category" (onSelect)="onSelectCategory(category)">
+              {{category}}
+            </md-option>
+          </md-select>
+          <button md-mini-fab color="primary" (click)="addCategory()"><md-icon>add</md-icon></button>
+        </h4>
+      </md-grid-tile>
+      <md-grid-tile>
+        <md-select [(ngModel)]="pagesize" placeholder="PageSize">
+          <md-option [value]="'10'" (onSelect)="onSelectPageSize('10')">10</md-option>
+          <md-option [value]="'20'" (onSelect)="onSelectPageSize('20')">20</md-option>
+          <md-option [value]="'50'" (onSelect)="onSelectPageSize('50')">50</md-option>
+          <md-option [value]="'100'" (onSelect)="onSelectPageSize('100')">100</md-option>
+        </md-select>
+      </md-grid-tile>
+    </md-grid-list>
+
+    <md-input-container class="full-width" type="search">
+      <textarea mdInput placeholder="search" #searchArea (keyup.enter)="search(searchArea.value, pagesize)"></textarea>
+    </md-input-container>
+    <div [hidden]="!isSearchNow"><md-spinner class="app-spinner"></md-spinner></div>
+  </div>
+  <div id="list-pain" class="flex-item" fxFlex="" *ngFor="let document of documents">
+
+    <md-card class="qa-card" style="width: 500px" *ngIf="document.question">
+      <md-card-content>
+        <p><md-icon>face</md-icon><span> </span><span class="pre-wrap">{{document.question}}</span></p>
+        <p><md-icon>android</md-icon><span> </span><span class="pre-wrap">{{document.answer}}</span></p>
+        <span>score: {{document._score}}</span>
+        <span class="complement">  posted at {{document.posted}}</span>
+        <span class="complement"> / like: {{document.like}}</span>
+      </md-card-content>
+      <md-card-actions class="hCenter">
+        <button md-button><md-icon>help</md-icon></button>
+        <button md-button (click)="deleteData(document._id)"><md-icon>delete</md-icon></button>
+        <button md-button (click)="editData(document)"><md-icon>create</md-icon></button>
+        <button md-button (click)="onClickLikeButton(document._id, 1)"><i class="material-icons">thumb_up</i></button>
+        <button md-button (click)="onClickLikeButton(document._id, -1)"><i class="material-icons">thumb_down</i></button>
+      </md-card-actions>
+    </md-card>
+
+  </div>
+</div>
+
+

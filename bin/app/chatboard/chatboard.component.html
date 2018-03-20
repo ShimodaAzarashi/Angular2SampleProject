@@ -1,0 +1,40 @@
+<div class="chatboard-contents">
+<h3>Chatboard
+      <span class="category-select" *ngIf="dbselected">
+      <md-select [(ngModel)]="chatCategory" placeholder="category" *ngIf="dbselected">
+        <md-option [value]="all">all</md-option>
+        <md-option *ngFor="let category of categories" [value]="category">
+          {{category}}
+        </md-option>
+      </md-select>
+      </span>
+</h3>
+<div id="chatboard-container" class='md-padding' layout-align="center center" layout>
+<div *ngIf="!dbselected">
+先にデータベースを選択してください。
+</div>
+
+<md-card class="chatboard-card" *ngIf="dbselected">
+  <md-card-content>      
+    <section>
+      <div *ngFor="let chat of chats">
+        <div class="clear"><div class="chat-question"><md-icon>face</md-icon> <p class="chat-text">{{chat.user_question}}</p></div></div>
+        <div class="clear"><div class="chat-answer"><md-icon>android</md-icon><p class="chat-text">{{chat.answer}}</p></div></div>
+        <div class="clear"><div class="chat-answer-html">
+          <div style="width:300px;height:200px;overflow-x:hidden;border:1px solid #999">
+            <div style="width:300px;height:200px;overflow:hidden;">        
+              <iframe frameborder="0" scrolling="no" src="http://alt.ai/" srcdoc="{{chat.html_doc}}"></iframe>
+            </div>
+          </div>
+          <a href="{{chat.html_url}}" target="_blank">詳細はこちらから...</a>
+        </div></div>
+      <!--   <md-divider></md-divider>    -->
+      </div>
+    </section>    
+  </md-card-content>
+  <md-card-actions>
+    <textarea #box class="full-width"></textarea>
+    <input type="button" value="送信" (click)="onPushSendButton(box.value)">
+  </md-card-actions>
+</md-card>
+</div>

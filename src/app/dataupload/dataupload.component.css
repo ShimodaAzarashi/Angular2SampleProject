@@ -1,0 +1,116 @@
+.data-contents {
+	margin-left: 20px;
+}
+#dataupload-container {
+  display: -webkit-flex;/*--- safari（PC）用 ---*/
+  display: flex;
+  -webkit-flex-flow:row wrap;/*--- safari（PC）用 ---*/
+  flex-flow:row wrap;
+  width: 60%;
+  margin-right: 10px;
+}
+
+#datadownload-container {
+  display: -webkit-flex;/*--- safari（PC）用 ---*/
+  display: flex;
+  -webkit-flex-flow:row wrap;/*--- safari（PC）用 ---*/
+  flex-flow:row wrap;
+  width: 60%;
+  margin-right: 10px;
+}
+
+.message-area {
+  font-size: 12px;
+  color: #4154d2;
+  margin-top: 10px; 
+}
+
+.md-card-actions {
+  display: flex;
+  flex-direction: column;
+}
+.dataupload-card {
+  margin: 16px 16px 16px 8px;
+  font-size: 12px;
+  width: 1000px;
+  max-width: 1000px;
+}
+.datadownload-card {
+  margin: 0px 16px 16px 8px;
+  padding-top: 0px;
+  font-size: 12px;
+  width: 1000px;
+  max-width: 1000px;
+}
+.category-select {
+	margin-left: 20px;
+}
+section {
+  max-width: 1000px;
+  height: 400px; 
+  overflow: scroll;
+  margin: 10px auto;
+}
+section div {
+  max-width: 1000px;
+  word-wrap: break-word;
+}
+.clear {
+  clear: both;
+}
+.chat-question {
+  position: relative;
+  padding: 5px 10px;
+  background: #E5E5EA;
+  border-radius: 10px;
+  color: black;
+  float: left;
+}
+.chat-answer {
+  position: relative;
+  padding: 5px 10px;
+  color: white;
+  background: #0B93F6;
+  border-radius: 10px;
+  float: right;
+  text-align: right;
+}
+.chat-answer-html {
+  position: relative;
+  padding: 5px 0px;
+  border-radius: 10px;
+  float: right;
+  text-align: right;
+}
+.chat-text {
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+.chat-answer-html iframe{
+	width: 1090px;
+	height: 1090px;
+	border-radius: 10px;
+	transform:scale(0.3);
+	-o-transform:scale(0.3);
+	-webkit-transform:scale(0.3);
+	-moz-transform:scale(0.3);
+	-ms-transform:scale(0.3);
+	transform-origin:0 0;
+	-o-transform-origin:0 0;
+	-webkit-transform-origin:0 0;
+	-moz-transform-origin:0 0;
+	-ms-transform-origin:0 0;
+}
+.chat-answer-html div{
+	border-radius: 10px;
+}
+.chat-answer-html p{
+	border-radius: 10px;
+}
+
+.upload-error-list{
+	height: 20px;
+	width: 300px;
+	font-size: 12px;
+	color: red;
+}

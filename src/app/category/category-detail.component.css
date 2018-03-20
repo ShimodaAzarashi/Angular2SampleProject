@@ -1,0 +1,16 @@
+.full-width {
+  width: 100%;
+}
+
+.category-detail {
+  width: 400px;
+}
+
+.hCenter {
+  text-align: center;
+}
+
+.field-error-message {
+	font-size: 12px;
+    color: red;
+}

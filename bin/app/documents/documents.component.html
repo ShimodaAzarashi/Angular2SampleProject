@@ -1,0 +1,18 @@
+
+<div id="docs-container" class="flex-container" fxLayout="row" fxLayoutAlign="center start">
+  <div id="list-pain" class="flex-item" fxFlex="650px">
+    <app-document-list [searchUserDb]="userDb" [(category)]="category" (documentEdit)="edit($event)"></app-document-list>
+    
+  </div>
+  <div id="edit-pain" class="flex-item" fxFlex="400px">
+    <div class="flex-container" fxLayout="column" fxLayoutAlign="center start">
+      
+      <div class="flex-item" fxFlex>
+        <app-document-detail [updateUserDb]="userDb" [updateCategory]="category"></app-document-detail>
+      </div>
+      <div class="flex-item" fxFlex>
+        <app-chatbox [chatUserDb]="userDb" [chatCategory]="category" ></app-chatbox>
+      </div>
+    </div>
+  </div>
+</div>

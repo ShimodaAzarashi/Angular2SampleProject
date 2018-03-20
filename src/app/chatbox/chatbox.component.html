@@ -1,0 +1,35 @@
+<md-card class="chat-card">
+  <md-card-content>
+    <h3>Chat Box<span *ngIf="chatCategory"> on {{chatCategory}}</span></h3>
+    <div #scrollChat style="height: 300px; overflow: scroll;">
+      <div *ngFor="let chat of chats">
+        <p><md-icon>face</md-icon><span> </span><span class="pre-wrap">{{chat.user_question}}</span></p>
+        <p *ngIf="chat.answer"><md-icon>android</md-icon><span> </span><span class="pre-wrap">{{chat.answer}}</span></p>
+        <md-divider></md-divider>
+      </div>
+    </div>
+  </md-card-content>
+  <md-card-actions>
+
+    <md-input-container class="full-width" type="search">
+      <textarea mdInput placeholder="your question" #box></textarea>
+    </md-input-container>
+    <md-select placeholder="your language" [(ngModel)]="langSpoken">
+      <md-option *ngFor="let lang of langSupported" [value]="lang.value" (onSelect)="onSelectLang(lang.value)">
+        {{lang.viewValue}}
+      </md-option>
+    </md-select>
+
+    <button md-raised-button (click)="onPushSendButton(box.value)">send text</button>
+    <md-button-toggle #micToggle (change)="onChangeMicToggle(micToggle.checked)">
+      <md-icon>mic</md-icon>mic input
+    </md-button-toggle>
+    <md-slide-toggle #readerToggle class="reader" color="primary" (change)="onChangeReaderToggle(readerToggle.checked)">
+      online reader
+    </md-slide-toggle>
+
+  </md-card-actions>
+  <md-card-footer>
+  </md-card-footer>
+
+</md-card>

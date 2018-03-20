@@ -1,0 +1,184 @@
+table {
+	border-collapse: collapse;
+    line-height: 18px;
+    border: 1px solid #ccc;
+}
+
+.no-border {
+    border: 0;
+}
+
+.no-line {
+    border-bottom: 0;
+}
+
+th {
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    background: #FFF;
+    vertical-align: middle;
+    height: 24px;
+}
+
+td {
+    border-bottom: 1px solid #ccc;
+}
+
+.dictionary-contents {
+	margin-left: 20px;
+  margin-bottom: 40px;
+	width: 700px;
+}
+
+.dictionary-search {
+	margin-top: 10px;
+	width: 500px;
+}
+
+.search-list{
+	width: 700px;
+}
+.synonym-list {
+
+}
+
+.search-list-item {
+	display: flex;
+	margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.md-list-item-text{
+	display: flex;
+	margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.edit-list-item {
+
+}
+
+.col-category-header {
+	width: 180px;
+	font-size: 12px;
+	color: #000;
+    margin-left: -10px;
+}
+.col-category {
+	width: 100px;
+	font-size: 12px;
+	color: #777;
+	margin-left: -10px;
+	display: table-cell;
+	border-right: 1px solid #fff;
+    border-left: 1px solid #fff;
+}
+.col-word-header {
+	width: 700px;
+	font-size: 14px;
+	color: #000;
+}
+.col-word {
+	width: 593px;
+	font-size: 14px;
+	display: table-cell;
+	border-right: 1px solid #fff;
+    border-left: 1px solid #fff;
+    padding: 5px 5px 5px 5px;
+}
+
+.col-id-header {
+	width: 100px;
+	font-size: 12px;
+	color: #000;
+	text-align: center;
+}
+.col-synonym-header {
+	width: 400px;
+	font-size: 12px;
+	color: #000;
+}
+.col-operation-header {
+	width: 120px;
+	font-size: 12px;
+	color: #000;
+}
+.col-addnew-header {
+	width: 100px;
+	font-size: 12px;
+	color: #000;
+}
+
+.col-id {
+	width: 100px;
+	font-size: 14px;
+	text-align: center;
+}
+.col-synonym {
+	width: 400px;
+	font-size: 14px;
+	padding-left: 5px;
+}
+.col-operation {
+	width: 120px;
+	font-size: 14px;
+	text-align: center;
+}
+.col-addnew {
+	width: 100px;
+	font-size: 14px;
+	text-align: center;
+}
+
+
+#dictionary-container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow:row wrap;
+  flex-flow:row wrap;
+  width: 100%;
+  margin-right: 10px;
+}
+
+.md-card-actions {
+  display: flex;
+  flex-direction: column;
+}
+
+.flat-button {
+  width: 30px;
+  min-width: 30px;
+  line-height: 30px;
+  vertical-align: middle;
+  background-color: #FFF;
+}
+
+.add-group-button {
+  margin-left: 5px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.md-icon-edit {
+	margin-left: -12px;
+	color: #333;
+}
+
+.md-icon-save {
+	margin-left: -12px;
+}
+
+.md-icon-clear {
+	margin-left: -12px;
+	color: red;
+}
+
+.md-icon-delete {
+	margin-left: -12px;
+	color: #333;
+}
+
+.md-icon-add {
+	margin-left: -12px;
+}

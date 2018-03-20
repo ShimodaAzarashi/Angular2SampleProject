@@ -1,0 +1,14 @@
+<div class="flex-container" fxLayout="column" fxLayoutAlign="space-around center">
+  <div id="header" class="flex-item full-width" fxFlex="">
+    <app-toolbar></app-toolbar>
+  </div>
+  <div id="main" class="flex-item full-width" fxFlex="100">
+    <div id="content" class="flex-container" fxLayout="row" fxLayoutAlign="center center">
+      <router-outlet></router-outlet>
+    </div>
+    <!-- Routed views go here -->
+  </div>
+  <div id="footer" class="flex-item full-width" fxFlex="">
+  </div>
+</div>
+
